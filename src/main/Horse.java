@@ -26,6 +26,18 @@ public class Horse extends ChessPiece {
                 if (!chessBoard.board[line][column].equals(this)) {
                     return false;
                 }
+                // перечисляю все возможные позиции для лошади
+                int[][] positions = new int[][]{
+                        {line - 2, column - 1}, {line - 2, column + 1},
+                        {line + 2, column - 1}, {line + 2, column + 1},
+                        {line - 1, column - 2}, {line - 1, column + 2},
+                        {line + 1, column - 2}, {line + 1, column + 2}
+                };
+                // проверяю можно ли сходить в нужную позицию
+                for (int i = 0; i < positions.length; i++) {
+                    if (positions[i][0] == toLine && positions[i][1] == toColumn)
+                        return true;
+                }
 
             }
 
